@@ -14,16 +14,76 @@ public class OneOfEachStats {
 		int seed = Integer.parseInt(args[1]);
 		// Initailizes a random numbers generator with the given seed value
         Random generator = new Random(seed);  
-		
-		//// In the previous version of this program, you used a statement like:
-		//// double rnd = Math.random();
-		//// Where "rnd" is the variable that stores the generated random value.
-		//// In this version of the program, replace this statement with:
-		//// double rnd = generator.nextDouble();
-		//// This statement will generate a random value in the range [0,1),
-		//// just like you had in the previous version, except that the 
-		//// randomization will be based on the given seed.
-		//// This is the only change that you have to do in the program.
-		    
+		double a = generator.nextDouble();
+		int n1 = 0;
+		int n2 = 0;
+		int n3 = 0;
+		int sum = 0;
+		for(int i = 0; i < a; i++)
+		{
+		double b = generator.nextDouble();
+		boolean girl = false;
+		boolean boy = false;
+		int count = 1;
+		while(!girl || !boy)
+		{
+			if (b < 0.5)
+			{
+				girl = true;
+			}
+			else
+			{
+				boy = true;	
+			}
+			if (girl && boy)
+			{
+				if (count == 2)
+				{
+					n1++;	
+				}
+				else
+				{
+					if (count == 3)
+					{
+					n2++;	
+					}
+					else
+					{
+						n3++;
+					}
+				}
+				sum += count;
+				}
+			b = generator.nextDouble();
+			count ++;
+			}
+		}
+		double avg = ((double) sum) / a;
+		System.out.println("Average: " + avg + " children to get at least one of each gender.");
+		System.out.println("Number of families with 2 children: " + n1);
+		System.out.println("Number of families with 3 children: " + n2);
+		System.out.println("Number of families with 4 or more children: " + n3);
+		if (n1 > n2)
+		{
+			if (n1 > n3)
+			{
+				System.out.println("The most common number of children is 2.");	
+			}
+			else
+			{
+				System.out.println("The most common number of children is 4 or more.");
+			}	
+		}
+		else
+		{
+			if (n2 > n3)
+			{
+				System.out.println("The most common number of children is 3.");	
+			}
+			else
+			{
+				System.out.println("The most common number of children is 4 or more.");
+			}
+		}
+		}
 	}
-}
