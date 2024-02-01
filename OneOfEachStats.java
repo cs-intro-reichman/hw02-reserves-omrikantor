@@ -24,12 +24,11 @@ public class OneOfEachStats {
 		//// just like you had in the previous version, except that the 
 		//// randomization will be based on the given seed.
 		//// This is the only change that you have to do in the program.
-		int a = Integer.parseInt(args[0]);
 		int n1 = 0;
 		int n2 = 0;
 		int n3 = 0;
 		int sum = 0;
-		for(int i = 0; i < a; i++)
+		for(int i = 0; i < T; i++)
 		{
 		double b = generator.nextDouble();
 		boolean girl = false;
@@ -37,7 +36,7 @@ public class OneOfEachStats {
 		int count = 1;
 		while(!girl || !boy)
 		{
-			if (b < 0.5)
+			if (b <= 0.5)
 			{
 				girl = true;
 			}
@@ -64,11 +63,14 @@ public class OneOfEachStats {
 				}
 				sum += count;
 				}
-			b = generator.nextDouble();
-			count ++;
+				else
+				{
+				b = generator.nextDouble();
+				count ++;	
+				}
 			}
 		}
-		double avg = ((double) sum) / a;
+		double avg = ((double) sum) / T;
 		System.out.println("Average: " + avg + " children to get at least one of each gender.");
 		System.out.println("Number of families with 2 children: " + n1);
 		System.out.println("Number of families with 3 children: " + n2);

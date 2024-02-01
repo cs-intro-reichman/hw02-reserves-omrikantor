@@ -46,8 +46,11 @@ public class OneOfEachStats1 {
 				}
 				sum += count;
 				}
-			b = Math.random();
-			count ++;
+				else
+				{
+				b = Math.random();
+				count ++;	
+				}
 			}
 		}
 		double avg = ((double) sum) / a;
