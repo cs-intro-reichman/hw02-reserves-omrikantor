@@ -15,7 +15,15 @@ public class DamkaBoard {
 		System.out.print("*");
 		if (j == a-1)
 			{
-		System.out.println();	
+				if (i % 2 != 0)
+				{
+					System.out.println();
+				}
+				else
+				{
+					System.out.print(" ");
+					System.out.println();
+				}		
 		}
 		else
 		{
